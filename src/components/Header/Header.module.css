@@ -1,0 +1,10 @@
+.mainTitleStyles {
+  padding: 2rem;
+  text-align: center;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.weather {
+  font-weight: 100;
+}

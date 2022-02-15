@@ -1,0 +1,23 @@
+.box1 {
+  height: 250px;
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 25px;
+}
+
+h6 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.hour {
+  font-family: "Times New Roman", Times, serif;
+  font-size: small;
+}
+
+.col {
+  margin-bottom: 40px;
+}
+
+.otherDays {
+  text-align: center;
+}

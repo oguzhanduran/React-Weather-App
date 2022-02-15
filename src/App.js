@@ -1,15 +1,14 @@
 import "./App.css";
+import Header from "./components/Header/Header";
+import Form from "./components/Form/Form";
+import CurrentDay from "./components/CurrentDay/CurrentDay";
 
 function App() {
   return (
-    <div>
-      <h1> Selam</h1>
-      <img
-        className="w-8 dark:bg-gray-600 rounded-full"
-        src={require(`./icons/clear-day.svg`)}
-        alt="sun"
-        title="Light Mode"
-      />
+    <div className="pageBackground">
+      <Header />
+      <Form />
+      <CurrentDay />
     </div>
   );
 }
