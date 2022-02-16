@@ -1,16 +1,17 @@
 .box1 {
-  height: 250px;
+  height: 200px;
   background-color: #fff;
   margin-top: 10px;
-  border-radius: 25px;
+  box-shadow: 5px 5px 4px #888888;
+  margin-bottom: 10px;
 }
 
-h6 {
-  font-family: "Times New Roman", Times, serif;
+h4 {
+  font-family: cursive;
 }
 
 .hour {
-  font-family: "Times New Roman", Times, serif;
+  font-family: cursive;
   font-size: small;
 }
 
@@ -18,6 +19,56 @@ h6 {
   margin-bottom: 40px;
 }
 
-.otherDays {
-  text-align: center;
+.currentDayIcon {
+  height: 125px;
+  width: 125px;
+  margin-top: -20px;
+}
+
+.box2 {
+  background-color: white;
+  height: 200px;
+  box-shadow: 5px 5px 4px #888888;
+}
+
+.box3 {
+  background-color: white;
+  height: 200px;
+  box-shadow: 5px 5px 4px #888888;
+}
+
+.currentDaySituation {
+  color: gray;
+  font-family: cursive;
+}
+
+.currentDayColor {
+  color: black;
+}
+
+.sunriseBox {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-left: -10px;
+}
+
+.sunriseFont {
+  font-family: cursive;
+  margin-right: 25px;
+  font-size: small;
+}
+
+.sunsetBox {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.sunsetFont {
+  font-family: cursive;
+  margin-top: -20px;
+  font-size: small;
 }

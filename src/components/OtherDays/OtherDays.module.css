@@ -1,0 +1,17 @@
+.col {
+  margin-bottom: 40px;
+}
+
+.otherDays {
+  text-align: center;
+  font-family: cursive;
+}
+
+.otherDaysWeather {
+  font-size: smaller;
+  color: gray;
+}
+
+.otherDaysWeatherDegree {
+  color: gray;
+}

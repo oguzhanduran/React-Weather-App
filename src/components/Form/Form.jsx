@@ -8,7 +8,7 @@ function Form() {
       <Container>
         <Row>
           <Col xl={4} className={styles.col}>
-            <h4>Have a good day😀</h4>
+            <h4></h4>
           </Col>
           <Col xl={5} className={styles.col}>
             <input
@@ -20,9 +20,8 @@ function Form() {
               Search
             </Button>
           </Col>
-          <Col xl={3} className={styles.col}>
-            Theme
-          </Col>
+
+          <Col xl={3} className={styles.col}></Col>
         </Row>
       </Container>
     </div>

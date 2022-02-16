@@ -1,121 +1,61 @@
 import React from "react";
 import styles from "./CurrentDay.module.css";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import icon1 from "../../icons/01d.svg";
+import Sunrise from "../../icons/sunrise.svg";
+import Sunset from "../../icons/sunset.svg";
+import Windsock from "../../icons/windsock.svg";
+import Humidity from "../../icons/humidity.svg";
 
 function CurrentDay() {
   return (
     <div>
       <Container>
         <Row>
-          <Col xl={3}>
-            <h6> </h6>
+          <Col xl={2}></Col>
+          <Col xl={8}>
+            <Row>
+              <Col md={4} className={styles.box1}>
+                <h4>Dalaman</h4>
+                <p className={styles.currentDaySituation}>
+                  Sunny <br />
+                  <span className={styles.currentDayColor}>15°</span> 5°
+                </p>
+
+                <div className={styles.currentDayIcon}>
+                  <img src={icon1} alt="güneşli" />
+                </div>
+              </Col>
+              <Col md={8} className={styles.box2}>
+                <h4>Details</h4>
+                <span className={styles.hour}>15.02.2022, Tuesday 16:28</span>
+                <br />
+
+                <img
+                  className={styles.sunriseBox}
+                  src={Sunrise}
+                  alt="sunrise"
+                />
+                <span className={styles.sunriseFont}> Sunrise: 02:07</span>
+                <img className={styles.sunsetBox} src={Sunset} alt="sunset" />
+                <span className={styles.sunsetFont}> Sunset: 02:07</span>
+                <br />
+                <img
+                  className={styles.sunriseBox}
+                  src={Humidity}
+                  alt="humidity"
+                />
+                <span className={styles.sunriseFont}> Humidity: 75%</span>
+                <img
+                  className={styles.sunsetBox}
+                  src={Windsock}
+                  alt="windsock"
+                />
+                <span className={styles.sunsetFont}> Wind Speed: 4km/h</span>
+              </Col>
+            </Row>
           </Col>
-          <Col xl={6} className={styles.box1}>
-            <h6>CURRENT WEATHER</h6>
-            <span className={styles.hour}>15.02.2022, Tuesday 16:28</span>
-            <p>Icon</p>
-            <p> 15 Derece</p>
-            <p>Sunny</p>
-          </Col>
-          <Col xl={3}>
-            <h6> </h6>
-          </Col>
-        </Row>
-        <Row>
-          <Row className="mt-4">
-            <h6 className={styles.otherDays}>OTHER DAYS</h6>
-            <Col xl={2} md={4} sm={6} className={styles.col}>
-              <Card style={{ width: "12rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://picsum.photos/id/237/120/180"
-                />
-                <Card.Body>
-                  <Card.Title>Tuesday</Card.Title>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup>
-              </Card>
-            </Col>
-            <Col xl={2} md={4} sm={6} className={styles.col}>
-              <Card style={{ width: "12rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://picsum.photos/id/237/120/180"
-                />
-                <Card.Body>
-                  <Card.Title>Tuesday</Card.Title>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup>
-              </Card>
-            </Col>
-            <Col xl={2} md={4} sm={6} className={styles.col}>
-              <Card style={{ width: "12rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://picsum.photos/id/237/120/180"
-                />
-                <Card.Body>
-                  <Card.Title>Tuesday</Card.Title>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup>
-              </Card>
-            </Col>
-            <Col xl={2} md={4} sm={6} className={styles.col}>
-              <Card style={{ width: "12rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://picsum.photos/id/237/120/180"
-                />
-                <Card.Body>
-                  <Card.Title>Tuesday</Card.Title>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup>
-              </Card>
-            </Col>
-            <Col xl={2} md={4} sm={6} className={styles.col}>
-              <Card style={{ width: "12rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://picsum.photos/id/237/120/180"
-                />
-                <Card.Body>
-                  <Card.Title>Tuesday</Card.Title>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup>
-              </Card>
-            </Col>
-            <Col xl={2} md={4} sm={6} className={styles.col}>
-              <Card style={{ width: "12rem" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://picsum.photos/id/237/120/180"
-                />
-                <Card.Body>
-                  <Card.Title>Tuesday</Card.Title>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>Vestibulum at eros</ListGroupItem>
-                </ListGroup>
-              </Card>
-            </Col>
-          </Row>
+          <Col xl={2}></Col>
         </Row>
       </Container>
     </div>
