@@ -73,3 +73,8 @@ h4 {
   margin-top: -20px;
   font-size: small;
 }
+
+.currentTemp {
+  font-weight: 900;
+  color: rgb(105, 105, 105);
+}

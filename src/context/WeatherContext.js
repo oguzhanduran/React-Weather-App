@@ -1,48 +1,51 @@
-import { createContext, useState, useEffect } from "react";
-import axios from "axios";
-import d10 from "../icons/01d.svg";
-import d40 from "../icons/04d.svg";
+import { createContext, useEffect, useState, useContext } from "react";
+import WeatherService from "../services/weatherService";
 
 const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
-  const [data, setData] = useState({});
-  const [location, setLocation] = useState("Fethiye");
-  const [icon, setIcon] = useState("");
+  const [cityName, setCityName] = useState("istanbul");
+  const [apiError, setApiErrorMes] = useState(false);
+  const [latAndLon, setLanAndLon] = useState({
+    lat: 41.0351,
+    lon: 28.9833,
+  });
 
-  // useEffect(() => {
-  //   const getWeatherData = async () => {
-  //     const key = process.env.REACT_APP_WEATHER_API_KEY;
-  //     try {
-  //       const { data } = await axios.get(
-  //         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`
-  //       );
-  //       setWeather(data);
-  //     } catch {
-  //       alert("Veri alınırken hata oluştu");
-  //     }
-  //   };
-  //   getWeatherData();
-  // }, [location]);
+  const [cityData, setCityData] = useState([]);
+  const [fullcityData, setFullcityData] = useState([]);
 
-  const key = process.env.REACT_APP_WEATHER_API_KEY;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`;
+  useEffect(() => {
+    let weatherService = new WeatherService();
+    weatherService
+      .getCityLatAndLon(cityName)
+      .then((result) => {
+        setApiErrorMes(false);
+        let a = result.data[0];
+        let resLat = Object.entries(a).find((e) => e[0] === "lat");
+        let resLon = Object.entries(a).find((e) => e[0] === "lon");
 
-  const searchLocation = () => {
-    axios.get(url).then((response) => {
-      setData(response.data);
-      setIcon(response.data.weather[0].icon);
-    });
-    setLocation("");
-  };
+        setLanAndLon({ lat: resLat[1], lon: resLon[1] });
+      })
+      .catch((err) => setApiErrorMes(true));
+  }, [cityName]);
+
+  useEffect(() => {
+    let weatherService = new WeatherService();
+    weatherService
+      .getWeeklyWeatherOfCityByLatAndLon(latAndLon.lat, latAndLon.lon)
+      .then((result) => {
+        setFullcityData(result.data);
+        setCityData(result.data.daily);
+      })
+      .catch((err) => console.log(err));
+  }, [latAndLon]);
 
   const values = {
-    data,
-    setData,
-    location,
-    setLocation,
-    icon,
-    searchLocation,
+    cityName,
+    setCityName,
+    cityData,
+    apiError,
+    fullcityData,
   };
   return (
     <WeatherContext.Provider value={values}>{children}</WeatherContext.Provider> // Burdaki children App.js dosyasındaki componentleri temsil eder.
@@ -50,3 +53,5 @@ export const WeatherProvider = ({ children }) => {
 };
 
 export default WeatherContext;
+
+export const useCity = () => useContext(WeatherContext);

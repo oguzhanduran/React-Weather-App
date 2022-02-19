@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import styles from "./CurrentDay.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Sunrise from "../../icons/sunrise.svg";
 import Sunset from "../../icons/sunset.svg";
 import Windsock from "../../icons/windsock.svg";
 import Humidity from "../../icons/humidity.svg";
-import WeatherContext from "../../context/WeatherContext";
+import { useCity } from "../../context/WeatherContext";
 import d10 from "../../icons/01d.svg";
 import n10 from "../../icons/01n.svg";
 import d20 from "../../icons/02d.svg";
@@ -24,85 +23,150 @@ import d05 from "../../icons/50d.svg";
 import n05 from "../../icons/50n.svg";
 
 function CurrentDay() {
-  const { data, icon } = useContext(WeatherContext);
+  const { cityData, fullcityData, cityName, apiError } = useCity();
 
-  console.log(icon);
+  function calcTime(t) {
+    const weekDay = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    var date = new Date(t * 1000).toLocaleDateString("tr-TR");
+    var time = new Date(t * 1000).toLocaleTimeString("tr-TR");
+    var _day = new Date(t * 1000).getUTCDay();
+
+    return { date, time, day: weekDay[_day] };
+  }
+
+  let date = new Date(fullcityData.current?.dt * 1000);
+  let sunrise = calcTime(fullcityData.current?.sunrise).time.substring(0, 5);
+  let sunset = calcTime(fullcityData.current?.sunset).time.substring(0, 5);
+  let humidity = fullcityData.current?.humidity;
+  let weatherCondition = fullcityData.current?.weather[0].main;
+  let windSpeed = Math.round(fullcityData.current?.wind_speed * 3.6);
+  let maxTemp = Math.ceil(
+    fullcityData.current ? fullcityData.daily[0]?.temp.max : null
+  );
+  let minTemp = Math.ceil(
+    fullcityData.current ? fullcityData.daily[0]?.temp.min : null
+  );
+
+  let currentTemp = Math.ceil(
+    fullcityData.current ? fullcityData.current?.temp : null
+  );
+
+  let descriptionName = fullcityData.current?.weather[0].description;
+
+  console.log(currentTemp);
+
+  let iconName = fullcityData.current
+    ? fullcityData.current.weather[0].icon
+    : null;
+
+  console.log(iconName);
+
+  console.log(cityData);
 
   const findIcon = () => {
-    if (icon[1] === "1") {
-      return icon[2] === "d" ? d10 : n10;
-    } else if (icon[1] === "2") {
-      return icon[2] === "d" ? d20 : n20;
-    } else if (icon[1] === "3") {
-      return icon[2] === "d" ? d30 : n30;
-    } else if (icon[1] === "3") {
-      return icon[2] === "d" ? d30 : n30;
-    } else if (icon[1] === "4") {
-      return icon[2] === "d" ? d40 : n40;
-    } else if (icon[1] === "9") {
-      return icon[2] === "d" ? d90 : n90;
-    } else if (icon[1] === "0") {
-      return icon[2] === "d" ? d01 : n01;
-    } else if (icon[1] === "3") {
-      return icon[2] === "d" ? d31 : n31;
-    } else if (icon[0] === "5") {
-      return icon[2] === "d" ? d05 : n05;
+    if (!iconName) {
+      return console.log("There is no icon");
+    } else if (iconName[1] === "1") {
+      return iconName[2] === "d" ? d10 : n10;
+    } else if (iconName[1] === "2") {
+      return iconName[2] === "d" ? d20 : n20;
+    } else if (iconName[1] === "3") {
+      return iconName[2] === "d" ? d30 : n30;
+    } else if (iconName[1] === "3") {
+      return iconName[2] === "d" ? d30 : n30;
+    } else if (iconName[1] === "4") {
+      return iconName[2] === "d" ? d40 : n40;
+    } else if (iconName[1] === "9") {
+      return iconName[2] === "d" ? d90 : n90;
+    } else if (iconName[1] === "0") {
+      return iconName[2] === "d" ? d01 : n01;
+    } else if (iconName[1] === "3") {
+      return iconName[2] === "d" ? d31 : n31;
+    } else if (iconName[0] === "5") {
+      return iconName[2] === "d" ? d05 : n05;
     }
   };
 
   return (
     <div>
-      <Container>
-        <Row>
-          <Col xl={2}></Col>
-          <Col xl={8}>
-            <Row>
-              <Col md={4} className={styles.box1}>
-                <h4>{data.name}</h4>
-                <p className={styles.currentDaySituation}>
-                  {data.weather ? data.weather[0].main : null} <br />
-                  <span className={styles.currentDayColor}>
-                    {data.main ? data.main.temp_max : null}°
+      {apiError ? (
+        <div className="bg-red-500 flex flex-wrap content-center text-gray-100 justify-center h-10 rounded-lg w-1/2 container mx-auto text-center text-sm font-bold mt-4 mb-2">
+          Wrong City Name!
+        </div>
+      ) : (
+        <Container>
+          <Row>
+            <Col xl={2}></Col>
+            <Col xl={8}>
+              <Row>
+                <Col md={4} className={styles.box1}>
+                  <h4>
+                    {cityName[0].toUpperCase() +
+                      cityName.substring(1).toLowerCase()}{" "}
+                    /<span className={styles.currentTemp}> {currentTemp}°</span>
+                  </h4>
+                  <p className={styles.currentDaySituation}>
+                    {weatherCondition} <br />
+                    <span className={styles.currentDayColor}>{maxTemp}°</span>
+                    {minTemp}°
+                  </p>
+
+                  <div className={styles.currentDayIcon}>
+                    <img src={findIcon()} alt={descriptionName} />
+                  </div>
+                </Col>
+                <Col md={8} className={styles.box2}>
+                  <h4>Details</h4>
+                  <span className={styles.hour}>
+                    {calcTime(fullcityData.current?.dt).date},{" "}
+                    {calcTime(fullcityData.current?.dt).day}{" "}
+                    {calcTime(fullcityData.current?.dt).time.substring(0, 5)}
                   </span>
-                  {data.main ? data.main.temp_min : null}°
-                </p>
+                  <br />
 
-                <div className={styles.currentDayIcon}>
-                  <img src={findIcon()} alt="güneşsizz" />
-                </div>
-              </Col>
-              <Col md={8} className={styles.box2}>
-                <h4>Details</h4>
-                <span className={styles.hour}>15.02.2022, Tuesday 16:28</span>
-                <br />
-
-                <img
-                  className={styles.sunriseBox}
-                  src={Sunrise}
-                  alt="sunrise"
-                />
-                <span className={styles.sunriseFont}> Sunrise: 02:07</span>
-                <img className={styles.sunsetBox} src={Sunset} alt="sunset" />
-                <span className={styles.sunsetFont}> Sunset: 02:07</span>
-                <br />
-                <img
-                  className={styles.sunriseBox}
-                  src={Humidity}
-                  alt="humidity"
-                />
-                <span className={styles.sunriseFont}> Humidity: 75%</span>
-                <img
-                  className={styles.sunsetBox}
-                  src={Windsock}
-                  alt="windsock"
-                />
-                <span className={styles.sunsetFont}> Wind Speed: 4km/h</span>
-              </Col>
-            </Row>
-          </Col>
-          <Col xl={2}></Col>
-        </Row>
-      </Container>
+                  <img
+                    className={styles.sunriseBox}
+                    src={Sunrise}
+                    alt="sunrise"
+                  />
+                  <span className={styles.sunriseFont}>
+                    {" "}
+                    Sunrise: {sunrise}
+                  </span>
+                  <img className={styles.sunsetBox} src={Sunset} alt="sunset" />
+                  <span className={styles.sunsetFont}> Sunset: {sunset}</span>
+                  <br />
+                  <img
+                    className={styles.sunriseBox}
+                    src={Humidity}
+                    alt="humidity"
+                  />
+                  <span className={styles.sunriseFont}>
+                    Humidity: {humidity}%
+                  </span>
+                  <img
+                    className={styles.sunsetBox}
+                    src={Windsock}
+                    alt="windsock"
+                  />
+                  <span className={styles.sunsetFont}>
+                    Wind Speed: {windSpeed}km/h
+                  </span>
+                </Col>
+              </Row>
+            </Col>
+            <Col xl={2}></Col>
+          </Row>
+        </Container>
+      )}
     </div>
   );
 }

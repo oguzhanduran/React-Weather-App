@@ -1,14 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./Form.module.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import WeatherContext from "../../context/WeatherContext";
-import { useContext } from "react";
+import { useCity } from "../../context/WeatherContext";
 
 function Form() {
-  const { location, setLocation, searchLocation } = useContext(WeatherContext);
+  const { setCityName, cityName } = useCity();
+  const [input, setInput] = useState("");
 
-  const getInput = (e) => {
-    setLocation(e.target.value);
+  const onChangeHandler = (e) => {
+    setInput(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setCityName(input);
+    console.log(cityName);
+    setInput("");
   };
 
   return (
@@ -18,18 +25,19 @@ function Form() {
           <Col xl={4} className={styles.col}>
             <h4></h4>
           </Col>
+
           <Col xl={5} className={styles.col}>
             <input
               type="text"
               placeholder="Please Enter Location"
               className={styles.locationInput}
-              value={location}
-              onChange={getInput}
+              onChange={onChangeHandler}
+              value={input}
             />
             <Button
               className={styles.button}
               variant="outline-dark"
-              onClick={searchLocation}
+              onClick={handleSubmit}
             >
               Search
             </Button>
