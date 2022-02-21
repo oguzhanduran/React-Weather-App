@@ -29,7 +29,7 @@ function Form() {
           <Col xl={5} className={styles.col}>
             <input
               type="text"
-              placeholder="Please Enter Location"
+              placeholder="Please Enter a Location"
               className={styles.locationInput}
               onChange={onChangeHandler}
               value={input}

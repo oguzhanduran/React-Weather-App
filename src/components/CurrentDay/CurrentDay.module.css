@@ -78,3 +78,13 @@ h4 {
   font-weight: 900;
   color: rgb(105, 105, 105);
 }
+
+.apiError {
+  font-weight: bold;
+  font-size: larger;
+  color: red;
+  text-align: center;
+
+  /* bg-red-500 
+  flex flex-wrap content-center text-gray-100 justify-center h-10 rounded-lg w-1/2 container mx-auto text-center text-sm font-bold mt-4 mb-2" */
+}

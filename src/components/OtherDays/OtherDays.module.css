@@ -15,3 +15,12 @@
 .otherDaysWeatherDegree {
   color: gray;
 }
+
+.div {
+  position: relative;
+  display: inline;
+}
+
+.apiErrorOtherDays {
+  background-color: blue;
+}

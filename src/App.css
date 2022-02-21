@@ -4,4 +4,8 @@
 
 .pageBackground {
   background-color: #ebebeb;
+  height: 100vh;
+
+  /* background-color: #121212;
+  color: blue; */
 }

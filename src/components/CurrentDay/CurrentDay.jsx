@@ -5,6 +5,7 @@ import Sunset from "../../icons/sunset.svg";
 import Windsock from "../../icons/windsock.svg";
 import Humidity from "../../icons/humidity.svg";
 import { useCity } from "../../context/WeatherContext";
+import OtherDays from "../OtherDays/OtherDays";
 import d10 from "../../icons/01d.svg";
 import n10 from "../../icons/01n.svg";
 import d20 from "../../icons/02d.svg";
@@ -42,7 +43,6 @@ function CurrentDay() {
     return { date, time, day: weekDay[_day] };
   }
 
-  let date = new Date(fullcityData.current?.dt * 1000);
   let sunrise = calcTime(fullcityData.current?.sunrise).time.substring(0, 5);
   let sunset = calcTime(fullcityData.current?.sunset).time.substring(0, 5);
   let humidity = fullcityData.current?.humidity;
@@ -98,9 +98,7 @@ function CurrentDay() {
   return (
     <div>
       {apiError ? (
-        <div className="bg-red-500 flex flex-wrap content-center text-gray-100 justify-center h-10 rounded-lg w-1/2 container mx-auto text-center text-sm font-bold mt-4 mb-2">
-          Wrong City Name!
-        </div>
+        <div className={styles.apiError}>Wrong City Name!</div>
       ) : (
         <Container>
           <Row>
@@ -164,6 +162,7 @@ function CurrentDay() {
               </Row>
             </Col>
             <Col xl={2}></Col>
+            <OtherDays />
           </Row>
         </Container>
       )}
