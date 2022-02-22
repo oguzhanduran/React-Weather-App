@@ -1,8 +1,16 @@
 .box1 {
   height: 200px;
-  background-color: #fff;
+  background-color: white;
   margin-top: 10px;
-  box-shadow: 5px 5px 4px #888888;
+  box-shadow: 5px 5px 4px #a59696be;
+  margin-bottom: 10px;
+}
+
+.box1Dark {
+  height: 200px;
+  background-color: #202327;
+  margin-top: 10px;
+  box-shadow: 5px 5px 4px #a59696be;
   margin-bottom: 10px;
 }
 
@@ -26,13 +34,12 @@ h4 {
 }
 
 .box2 {
-  background-color: white;
+  background-color: #fff;
   height: 200px;
   box-shadow: 5px 5px 4px #888888;
 }
-
-.box3 {
-  background-color: white;
+.box2Dark {
+  background-color: #202327;
   height: 200px;
   box-shadow: 5px 5px 4px #888888;
 }
@@ -44,6 +51,11 @@ h4 {
 
 .currentDayColor {
   color: black;
+  margin-right: 5px;
+}
+
+.currentDayColorDark {
+  color: white;
   margin-right: 5px;
 }
 
@@ -84,7 +96,15 @@ h4 {
   font-size: larger;
   color: red;
   text-align: center;
+  background-color: #ebebeb;
+  height: 79.3vh;
+  width: 750px;
+  margin-left: 360px;
 
   /* bg-red-500 
   flex flex-wrap content-center text-gray-100 justify-center h-10 rounded-lg w-1/2 container mx-auto text-center text-sm font-bold mt-4 mb-2" */
+}
+
+.backgroundCurrentDay {
+  background-color: red;
 }

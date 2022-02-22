@@ -16,11 +16,12 @@
   color: gray;
 }
 
-.div {
-  position: relative;
-  display: inline;
+.darkk {
+  background-color: #202327;
+  border-radius: 5px;
 }
 
-.apiErrorOtherDays {
-  background-color: blue;
+.lightt {
+  background-color: #fff;
+  border-radius: 5px;
 }

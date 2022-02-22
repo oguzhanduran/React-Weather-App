@@ -4,7 +4,7 @@ import WeatherService from "../services/weatherService";
 const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
-  const [cityName, setCityName] = useState("istanbul");
+  const [cityName, setCityName] = useState("Fethiye");
   const [apiError, setApiErrorMes] = useState(false);
   const [latAndLon, setLanAndLon] = useState({
     lat: 41.0351,

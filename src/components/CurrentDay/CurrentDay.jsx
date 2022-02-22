@@ -1,11 +1,11 @@
 import styles from "./CurrentDay.module.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import Sunrise from "../../icons/sunrise.svg";
 import Sunset from "../../icons/sunset.svg";
 import Windsock from "../../icons/windsock.svg";
 import Humidity from "../../icons/humidity.svg";
 import { useCity } from "../../context/WeatherContext";
-import OtherDays from "../OtherDays/OtherDays";
+import { useTheme } from "../../context/ThemeContext";
 import d10 from "../../icons/01d.svg";
 import n10 from "../../icons/01n.svg";
 import d20 from "../../icons/02d.svg";
@@ -24,7 +24,9 @@ import d05 from "../../icons/50d.svg";
 import n05 from "../../icons/50n.svg";
 
 function CurrentDay() {
-  const { cityData, fullcityData, cityName, apiError } = useCity();
+  const { fullcityData, cityName, apiError } = useCity();
+
+  const { theme } = useTheme();
 
   function calcTime(t) {
     const weekDay = [
@@ -48,6 +50,8 @@ function CurrentDay() {
   let humidity = fullcityData.current?.humidity;
   let weatherCondition = fullcityData.current?.weather[0].main;
   let windSpeed = Math.round(fullcityData.current?.wind_speed * 3.6);
+  let descriptionName = fullcityData.current?.weather[0].description;
+  let currentTemp = Math.ceil(fullcityData.current?.temp);
   let maxTemp = Math.ceil(
     fullcityData.current ? fullcityData.daily[0]?.temp.max : null
   );
@@ -55,21 +59,12 @@ function CurrentDay() {
     fullcityData.current ? fullcityData.daily[0]?.temp.min : null
   );
 
-  let currentTemp = Math.ceil(
-    fullcityData.current ? fullcityData.current?.temp : null
-  );
-
-  let descriptionName = fullcityData.current?.weather[0].description;
-
-  console.log(currentTemp);
-
   let iconName = fullcityData.current
     ? fullcityData.current.weather[0].icon
     : null;
 
-  console.log(iconName);
-
-  console.log(cityData);
+  // console.log(iconName);
+  // console.log(cityData);
 
   const findIcon = () => {
     if (!iconName) {
@@ -98,14 +93,21 @@ function CurrentDay() {
   return (
     <div>
       {apiError ? (
-        <div className={styles.apiError}>Wrong City Name!</div>
+        <div className={styles.apiError}>
+          <Alert variant="danger"> Wrong City Name! </Alert>
+        </div>
       ) : (
         <Container>
           <Row>
             <Col xl={2}></Col>
             <Col xl={8}>
               <Row>
-                <Col md={4} className={styles.box1}>
+                <Col
+                  md={4}
+                  className={`${
+                    theme === "dark" ? styles.box1Dark : styles.box1
+                  }`}
+                >
                   <h4>
                     {cityName[0].toUpperCase() +
                       cityName.substring(1).toLowerCase()}{" "}
@@ -113,7 +115,15 @@ function CurrentDay() {
                   </h4>
                   <p className={styles.currentDaySituation}>
                     {weatherCondition} <br />
-                    <span className={styles.currentDayColor}>{maxTemp}°</span>
+                    <span
+                      className={`${
+                        theme === "dark"
+                          ? styles.currentDayColorDark
+                          : styles.currentDayColor
+                      }`}
+                    >
+                      {maxTemp}°
+                    </span>
                     {minTemp}°
                   </p>
 
@@ -121,7 +131,12 @@ function CurrentDay() {
                     <img src={findIcon()} alt={descriptionName} />
                   </div>
                 </Col>
-                <Col md={8} className={styles.box2}>
+                <Col
+                  md={8}
+                  className={`${
+                    theme === "dark" ? styles.box2Dark : styles.box2
+                  }`}
+                >
                   <h4>Details</h4>
                   <span className={styles.hour}>
                     {calcTime(fullcityData.current?.dt).date},{" "}
@@ -162,7 +177,6 @@ function CurrentDay() {
               </Row>
             </Col>
             <Col xl={2}></Col>
-            <OtherDays />
           </Row>
         </Container>
       )}

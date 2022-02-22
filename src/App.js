@@ -1,18 +1,14 @@
-import "./App.css";
-import { useState } from "react";
-import Header from "./components/Header/Header";
-import Form from "./components/Form/Form";
-import CurrentDay from "./components/CurrentDay/CurrentDay";
-// import OtherDays from "./components/OtherDays/OtherDays";
+import Container from "./components/Container/Container";
 import { WeatherProvider } from "./context/WeatherContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
-    <div className="pageBackground">
+    <div>
       <WeatherProvider>
-        <Header />
-        <Form />
-        <CurrentDay />
+        <ThemeProvider>
+          <Container />
+        </ThemeProvider>
       </WeatherProvider>
     </div>
   );

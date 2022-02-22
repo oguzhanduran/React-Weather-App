@@ -2,9 +2,11 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useCity } from "../../context/WeatherContext";
+import { useTheme } from "../../context/ThemeContext";
 
 function Form() {
-  const { setCityName, cityName } = useCity();
+  const { setCityName } = useCity();
+  const { theme } = useTheme();
   const [input, setInput] = useState("");
 
   const onChangeHandler = (e) => {
@@ -13,18 +15,19 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCityName(input);
-    console.log(cityName);
-    setInput("");
+    if (input === "") {
+      return alert("Please Enter a Location");
+    } else {
+      setCityName(input);
+      setInput("");
+    }
   };
 
   return (
     <div>
       <Container>
         <Row>
-          <Col xl={4} className={styles.col}>
-            <h4></h4>
-          </Col>
+          <Col xl={4} className={styles.col}></Col>
 
           <Col xl={5} className={styles.col}>
             <input
@@ -36,7 +39,7 @@ function Form() {
             />
             <Button
               className={styles.button}
-              variant="outline-dark"
+              variant={`${theme === "dark" ? "outline-light" : "outline-dark"}`}
               onClick={handleSubmit}
             >
               Search

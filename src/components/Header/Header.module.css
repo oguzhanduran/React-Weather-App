@@ -8,3 +8,10 @@
 .weather {
   font-weight: 100;
 }
+
+.btnTheme {
+  background: transparent;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
