@@ -17,11 +17,11 @@
 }
 
 h4 {
-  font-family: cursive;
+  font-family: cursive, Rockwell, Tahoma, "Times New Roman", Times, serif;
 }
 
 .hour {
-  font-family: cursive;
+  font-family: cursive, Rockwell, Tahoma, "Times New Roman", Times, serif;
   font-size: small;
 }
 
@@ -50,7 +50,7 @@ h4 {
 
 .currentDaySituation {
   color: gray;
-  font-family: cursive;
+  font-family: cursive, Rockwell, Tahoma, "Times New Roman", Times, serif;
 }
 
 .currentDayColor {
@@ -72,7 +72,7 @@ h4 {
 }
 
 .sunriseFont {
-  font-family: cursive;
+  font-family: cursive, Rockwell, Tahoma, "Times New Roman", Times, serif;
   margin-right: 25px;
   font-size: small;
 }
@@ -85,7 +85,7 @@ h4 {
 }
 
 .sunsetFont {
-  font-family: cursive;
+  font-family: cursive, Rockwell, Tahoma, "Times New Roman", Times, serif;
   margin-top: -20px;
   font-size: small;
 }
