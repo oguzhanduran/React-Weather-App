@@ -5,6 +5,11 @@
   font-family: cursive;
 }
 
+.footerText:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 a:hover {
   color: #edcc00;
 }
@@ -18,4 +23,9 @@ i:hover {
   margin-right: 55px;
   margin-top: -7px;
   margin-bottom: 10px;
+}
+
+.icons:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
