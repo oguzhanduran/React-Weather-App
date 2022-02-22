@@ -2,6 +2,7 @@ import Header from "../Header/Header";
 import Form from "../Form/Form";
 import CurrentDay from "../CurrentDay/CurrentDay";
 import OtherDays from "../OtherDays/OtherDays";
+import Footer from "../Footer/Footer";
 import { useTheme } from "../../context/ThemeContext";
 import styles from "./Container.module.css";
 
@@ -14,6 +15,7 @@ function Container() {
       <Form />
       <CurrentDay />
       <OtherDays />
+      <Footer />
     </div>
   );
 }

@@ -1,8 +1,9 @@
 .mainTitleStyles {
-  padding: 1.5rem;
+  padding: 0.75rem;
   text-align: center;
   font-weight: 900;
   font-size: 2rem;
+  margin-bottom: -30px;
 }
 
 .weather {

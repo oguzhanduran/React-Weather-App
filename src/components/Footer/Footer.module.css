@@ -1,0 +1,21 @@
+.footerText {
+  color: gray;
+  margin-top: -40px;
+  font-size: medium;
+  font-family: cursive;
+}
+
+a:hover {
+  color: #edcc00;
+}
+
+i:hover {
+  color: #edcc00;
+}
+
+.icons {
+  float: left;
+  margin-right: 55px;
+  margin-top: -7px;
+  margin-bottom: 10px;
+}
