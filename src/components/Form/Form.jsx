@@ -29,7 +29,7 @@ function Form() {
         <Row>
           <Col xl={4} className={styles.col}></Col>
 
-          <Col xl={5} className={styles.col}>
+          <Col xl={4} className={styles.col}>
             <input
               type="text"
               placeholder="Please Enter a Location"
@@ -46,7 +46,7 @@ function Form() {
             </Button>
           </Col>
 
-          <Col xl={3} className={styles.col}></Col>
+          <Col xl={4} className={styles.col}></Col>
         </Row>
       </Container>
     </div>

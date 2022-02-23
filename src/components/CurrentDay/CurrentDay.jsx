@@ -93,9 +93,23 @@ function CurrentDay() {
   return (
     <div>
       {apiError ? (
-        <div className={styles.apiError}>
-          <Alert variant="danger"> Wrong City Name! </Alert>
-        </div>
+        <Container>
+          <Row>
+            <Col sm={4}>
+              <h1></h1>
+            </Col>
+            <Col sm={4} className={styles.apiError}>
+              <Alert variant="danger" className={styles.alert}>
+                {" "}
+                Wrong City Name!{" "}
+              </Alert>
+            </Col>
+            <Col sm={4}>
+              {" "}
+              <h1></h1>
+            </Col>
+          </Row>
+        </Container>
       ) : (
         <Container>
           <Row>

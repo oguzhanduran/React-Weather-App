@@ -97,19 +97,13 @@ h4 {
 }
 
 .apiError {
-  font-weight: bold;
-  font-size: larger;
-  color: red;
-  text-align: center;
-  background-color: #ebebeb;
-  height: 79.3vh;
-  width: 750px;
-  margin-left: 360px;
-
-  /* bg-red-500 
-  flex flex-wrap content-center text-gray-100 justify-center h-10 rounded-lg w-1/2 container mx-auto text-center text-sm font-bold mt-4 mb-2" */
+  margin-left: -7px;
+  margin-bottom: 50px;
 }
-
 .backgroundCurrentDay {
   background-color: red;
+}
+
+.alert {
+  text-align: center;
 }

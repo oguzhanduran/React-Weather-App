@@ -3,6 +3,7 @@
   margin-top: -40px;
   font-size: medium;
   font-family: "Times New Roman", Times, serif;
+  margin-left: 60px;
 }
 
 .footerText:hover {
@@ -10,22 +11,27 @@
   transform: scale(1.1);
 }
 
-a:hover {
-  color: #edcc00;
+/* a:hover {
+  color: blue;
 }
 
 i:hover {
-  color: #edcc00;
-}
+  color: red;
+} */
 
 .icons {
   float: left;
   margin-right: 55px;
-  margin-top: -7px;
+
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 .icons:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.2);
+}
+
+.container {
+  height: 64.5vh;
 }

@@ -6,14 +6,15 @@ import { Container, Row, Col } from "react-bootstrap";
 import LinkedinIcon from "../../icons/linkedinIcon";
 import GithubIcon from "../../icons/githubIcon";
 import TwitterIcon from "../../icons/twitterIcon";
+import { useCity } from "../../context/WeatherContext";
 function Footer() {
-  const { theme } = useTheme();
+  const { apiError } = useCity();
   return (
     <footer>
-      <Container>
+      <Container className={`${apiError ? styles.container : null}`}>
         <Row>
-          <Col sm={5}></Col>
-          <Col sm={3}>
+          <Col sm={4}></Col>
+          <Col sm={4}>
             {" "}
             <p className={styles.footerText}>
               Developed by{" "}
