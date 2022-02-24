@@ -11,6 +11,7 @@ export const WeatherProvider = ({ children }) => {
     lon: 28.9833,
   });
 
+  // Kullanıcının mevcut girdiği şehri local storage'a kaydettik.
   useEffect(() => {
     const currentCityName = localStorage.getItem("cityName");
     setCityName(JSON.parse(currentCityName));
@@ -29,21 +30,21 @@ export const WeatherProvider = ({ children }) => {
       .getCityLatAndLon(cityName)
       .then((result) => {
         setApiErrorMes(false);
-        let a = result.data[0];
-        let resLat = Object.entries(a).find((e) => e[0] === "lat");
-        let resLon = Object.entries(a).find((e) => e[0] === "lon");
+        let data = result.data[0];
+        let resLat = Object.entries(data).find((e) => e[0] === "lat"); // Şehrin enlem değerini resLat olarak aldık.
+        let resLon = Object.entries(data).find((e) => e[0] === "lon"); // Şehrin boylam değerini resLon olarak aldık.
 
         setLanAndLon({ lat: resLat[1], lon: resLon[1] });
       })
       .catch((err) => setApiErrorMes(true));
-  }, [cityName]);
+  }, [cityName]); // Şehir değeri her değiştiğinde ismi değiştiğinde useEffect hook'umuz çalışacak.
 
   useEffect(() => {
     let weatherService = new WeatherService();
     weatherService
       .getWeeklyWeatherOfCityByLatAndLon(latAndLon.lat, latAndLon.lon)
       .then((result) => {
-        setFullcityData(result.data);
+        setFullcityData(result.data); // enlem ve boylam değerleri aracılığı ile gelen değerleri FullcityData ve setCityData değişkenlerimize atadık.
         setCityData(result.data.daily);
       })
       .catch((err) => console.log(err));

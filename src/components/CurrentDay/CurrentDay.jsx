@@ -40,11 +40,18 @@ function CurrentDay() {
     ];
     var date = new Date(t * 1000).toLocaleDateString("tr-TR");
     var time = new Date(t * 1000).toLocaleTimeString("tr-TR");
-    var _day = new Date(t * 1000).getUTCDay();
+    var _day = new Date(t * 1000).getUTCDay(); // 0-6 arasındaki bir değere haftanın kaçıncı gününde olduğumuzu atadık. 0. gün Pazar'dır.
+
+    //toLocaleDateString("tr-TR") ayın Türkçe dilinde uzun yazılışını verir. Örneğin date çıktısı şu an 24.02.2022 iken toLocaleDateString("en-US") yazsaydık 02.24.2022 olurdu.
+
+    // Gelen değeri 1000 ile çarpmamızın nedeni ise ms olarak gelen değeri saniyeye çevirmek.
+
+    console.log(time);
 
     return { date, time, day: weekDay[_day] };
   }
 
+  // Burda ? veya ternary operatörü kullanmamızın nedeni veri gelmediyse hata vermesini engellemek.
   let sunrise = calcTime(fullcityData.current?.sunrise).time.substring(0, 5);
   let sunset = calcTime(fullcityData.current?.sunset).time.substring(0, 5);
   let humidity = fullcityData.current?.humidity;

@@ -8,7 +8,7 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     const newTheme = localStorage.getItem("theme");
     setTheme(JSON.parse(newTheme)); //aldığımız string ifadeyi objeye çevirdik.
-  }, []); // Sadece ilk render'da çalışmasını istiyoruz.
+  }, []); // Sadece ilk render'da çalışmasını istediğimiz için "[]" koyduk.
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme)); // objeyi string'e çevirdik.
