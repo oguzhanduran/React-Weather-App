@@ -11,6 +11,15 @@ export const WeatherProvider = ({ children }) => {
     lon: 28.9833,
   });
 
+  useEffect(() => {
+    const currentCityName = localStorage.getItem("cityName");
+    setCityName(JSON.parse(currentCityName));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cityName", JSON.stringify(cityName));
+  });
+
   const [cityData, setCityData] = useState([]);
   const [fullcityData, setFullcityData] = useState([]);
 

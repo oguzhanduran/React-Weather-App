@@ -1,14 +1,24 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const newTheme = localStorage.getItem("theme");
+    setTheme(JSON.parse(newTheme)); //aldığımız string ifadeyi objeye çevirdik.
+  }, []); // Sadece ilk render'da çalışmasını istiyoruz.
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(theme)); // objeyi string'e çevirdik.
+  });
 
   const values = {
     theme,
     setTheme,
   };
+
   return (
     <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
   ); // Burdaki children App.js dosyasındaki componentleri temsil eder. Yani buradan componentlerimize children aracılığı ile veri gönderiyoruz.

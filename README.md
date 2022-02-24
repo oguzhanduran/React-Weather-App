@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+<div align="center">
+  <img src="./src/assets/☀_React_Weather_App__❄.png" alt="Logo" >
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <img src="https://basmilius.github.io/weather-icons/production/fill/all/partly-cloudy-day-rain.svg" alt="Logo" width="100" height="100">
+</div>
 
-## Available Scripts
+<div>
 
-In the project directory, you can run:
+  <p align="center">
+    The application provides instant and weekly forecast weather information of the desired location.
+    <br />
+    <br />
+    <a href="https://oguzhanduran-react-weather-app.netlify.app/">↪️ See it live!</a>
+  </p>
+</div>
 
-### `npm start`
+<div align="center">
+  <img src="./src/assets/react-weather-app.gif" width="600">
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- ABOUT THE PROJECT -->
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💡 About The Project
 
-### `npm test`
+The project is a weather application that you can reach 7-day maximum and minimum temperature values as well as instant humidity, wind speed, and current temperature values by entering any location name in the world. İn addition to this, the app contains icons reflecting the general weather conditions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The project was developed with React.js by using Context, Hooks, and Life Cycles Methods. Styled with Pure CSS and React-Bootstrap.
 
-### `npm run build`
+### 💻 Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [React.js](https://reactjs.org/)
+- [Axios](https://www.npmjs.com/package/axios)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- SETUP -->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Setup
 
-### `npm run eject`
+- Sign up to [www.openweathermap.org](https://openweathermap.org/) with your e-mail and get the API key.
+- Fork the project and clone it locally.
+- Create a file at the root of the project called .env with the following contents:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ```sh
+  REACT_APP_API_KEY=YOUR API KEY HERE
+  ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- In the project directory, ou can follow the steps below to download the dependencies:
+  - Install with npm:
+  ```sh
+  npm i
+  ```
+  - Install with yarn:
+  ```sh
+  yarn
+  ```
+- In the project directory, you can run:
+  - Run with npm:
+  ```sh
+  npm run
+  ```
+  - Run with yarn:
+  ```sh
+  yarn start
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ⌨️ Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You need to enter a location into the input and click the search button.
 
-## Learn More
+## 📧 Contact
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Oguzhan Duran - [Linkedin](https://www.linkedin.com/in/oguzhnduran/) [twitter](https://twitter.com/oguzhnduran)- oguzhnduran@gmail.com
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Project Link: [https://github.com/oguzhanduran/react-weather-app](https://github.com/oguzhanduran/react-weather-app)
 
-### Code Splitting
+<!-- ACKNOWLEDGMENTS -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔎 Acknowledgments
 
-### Analyzing the Bundle Size
+- [Weather Icons](https://github.com/basmilius/weather-icons)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- SHOW YOUR SUPPORT -->
 
-### Making a Progressive Web App
+## ⭐️ Show Your Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please give a ⭐️ if this project helped you!

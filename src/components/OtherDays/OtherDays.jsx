@@ -37,10 +37,9 @@ function OtherDays() {
       ) : (
         <Container>
           <Row className="mt-4">
-            <Col sm={11}>
+            <Col sm={12}>
               <h6 className={styles.otherDays}>OTHER DAYS</h6>
             </Col>
-            <Col sm={1}></Col>
 
             {sevenDay?.map((day, i) => {
               function calcTime(t) {
@@ -95,7 +94,7 @@ function OtherDays() {
               return (
                 <Col xl={2} md={4} xs={6} className={styles.col} key={i}>
                   <div
-                    style={{ width: "8.4rem" }}
+                    style={{ width: "7.7rem" }}
                     className={`${
                       theme === "dark" ? styles.darkk : styles.lightt
                     }`}

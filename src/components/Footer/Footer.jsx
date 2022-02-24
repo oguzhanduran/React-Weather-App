@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { useTheme } from "../../context/ThemeContext";
 import styles from "./Footer.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import LinkedinIcon from "../../icons/linkedinIcon";
@@ -13,8 +12,8 @@ function Footer() {
     <footer>
       <Container className={`${apiError ? styles.container : null}`}>
         <Row>
-          <Col sm={4}></Col>
-          <Col sm={4}>
+          <Col sm={5}></Col>
+          <Col sm={2}>
             {" "}
             <p className={styles.footerText}>
               Developed by{" "}
@@ -22,35 +21,45 @@ function Footer() {
                 Oğuzhan Duran
               </a>
             </p>
-            <span className={styles.icons}>
-              <a
-                href="https://www.linkedin.com/in/oguzhnduran/"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <LinkedinIcon />
-              </a>
-            </span>
-            <span className={styles.icons}>
-              <a
-                href="https://github.com/oguzhanduran"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <GithubIcon />
-              </a>
-            </span>
-            <span className={styles.icons}>
-              <a
-                href="https://twitter.com/oguzhnduran"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <TwitterIcon />
-              </a>
-            </span>
+            <Row>
+              <Col>
+                <span className={styles.icons}>
+                  <a
+                    href="https://www.linkedin.com/in/oguzhnduran/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <LinkedinIcon />
+                  </a>
+                </span>
+              </Col>
+
+              <Col>
+                <span className={styles.icons}>
+                  <a
+                    href="https://github.com/oguzhanduran"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <GithubIcon />
+                  </a>
+                </span>
+              </Col>
+
+              <Col>
+                <span className={styles.icons}>
+                  <a
+                    href="https://twitter.com/oguzhnduran"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <TwitterIcon />
+                  </a>
+                </span>
+              </Col>
+            </Row>
           </Col>
-          <Col sm={4}></Col>
+          <Col sm={5}></Col>
         </Row>
       </Container>
     </footer>

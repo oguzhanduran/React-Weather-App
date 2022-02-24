@@ -15,11 +15,14 @@ function Header() {
     <div>
       <Container>
         <Row>
-          <Col sm={11}>
+          <Col>
             <h1 className={styles.mainTitleStyles}>
               <span className={styles.weather}> Weather </span> Forecast
             </h1>{" "}
           </Col>
+        </Row>
+        <Row>
+          <Col sm={11}> </Col>
           <Col sm={1}>
             <Button
               type="button"
