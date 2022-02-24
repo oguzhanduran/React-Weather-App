@@ -30,9 +30,9 @@ export const WeatherProvider = ({ children }) => {
       .getCityLatAndLon(cityName)
       .then((result) => {
         setApiErrorMes(false);
-        let data = result.data[0];
-        let resLat = Object.entries(data).find((e) => e[0] === "lat"); // Şehrin enlem değerini resLat olarak aldık.
-        let resLon = Object.entries(data).find((e) => e[0] === "lon"); // Şehrin boylam değerini resLon olarak aldık.
+        let resData = result.data[0];
+        let resLat = Object.entries(resData).find((e) => e[0] === "lat"); // Şehrin enlem değerini resLat olarak aldık.
+        let resLon = Object.entries(resData).find((e) => e[0] === "lon"); // Şehrin boylam değerini resLon olarak aldık.
 
         setLanAndLon({ lat: resLat[1], lon: resLon[1] });
       })
