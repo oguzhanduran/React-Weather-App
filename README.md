@@ -12,7 +12,7 @@
     The application provides instant and weekly forecast weather information of the desired location.
     <br />
     <br />
-    <a href="https://oguzhanduran-react-weather-app.netlify.app/">↪️ See it live!</a>
+    <a href="https://oguzhanduran-react-weather-app.netlify.app/" target="_blank">↪️ See it live!</a>
   </p>
 </div>
 
@@ -26,7 +26,7 @@
 
 The project is a weather application that you can reach 7-day maximum and minimum temperature values as well as instant humidity, wind speed, and current temperature values by entering any location name in the world. İn addition to this, the app contains icons reflecting the general weather conditions.
 
-The project was developed with React.js by using Context, Hooks, and Life Cycles Methods. Styled with Pure CSS and React-Bootstrap.
+The project was developed with React.js by using Context Api, React Hooks, and Life Cycles Methods. Styled with Pure CSS and React-Bootstrap.
 
 ### 💻 Built With
 
@@ -70,13 +70,11 @@ You need to enter a location into the input and click the search button.
 
 ## 📧 Contact
 
-Oguzhan Duran - [Linkedin](https://www.linkedin.com/in/oguzhnduran/) [twitter](https://twitter.com/oguzhnduran)- oguzhnduran@gmail.com
+Oguzhan Duran - [Linkedin](https://www.linkedin.com/in/oguzhnduran/) - [Twitter](https://twitter.com/oguzhnduran)- oguzhnduran@gmail.com
 
-Project Link: [https://github.com/oguzhanduran/react-weather-app](https://github.com/oguzhanduran/react-weather-app)
+<!-- ICONS -->
 
-<!-- ACKNOWLEDGMENTS -->
-
-## 🔎 Acknowledgments
+## 🔎 Icons
 
 - [Weather Icons](https://github.com/basmilius/weather-icons)
 
