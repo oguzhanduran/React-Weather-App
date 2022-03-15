@@ -12,7 +12,7 @@
     The application provides instant and weekly forecast weather information of the desired location.
     <br />
     <br />
-    <a href="https://oguzhanduran-react-weather-app.netlify.app/" target="_blank">↪️ See it live!</a>
+    <a href="https://oguzhanduran-react-weather-app.netlify.app/" target="_blank">↪️ See it live!!!</a>
   </p>
 </div>
 
