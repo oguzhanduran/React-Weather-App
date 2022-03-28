@@ -26,7 +26,7 @@
 
 The project is a weather application that you can reach 7-day maximum and minimum temperature values as well as instant humidity, wind speed, and current temperature values by entering any location name in the world. İn addition to this, the app contains icons reflecting the general weather conditions.
 
-The project was developed with React.js by using Context Api, React Hooks, and Life Cycles Methods. Styled with Pure CSS and React-Bootstrap.
+The project was developed with React.js by using Context Api and React Hooks. Styled with Pure CSS and React-Bootstrap.
 
 ### 💻 Built With
 
