@@ -57,7 +57,7 @@ The project was developed with React.js by using Context Api and React Hooks. St
 - In the project directory, you can run:
   - Run with npm:
   ```sh
-  npm run
+  npm start
   ```
   - Run with yarn:
   ```sh
